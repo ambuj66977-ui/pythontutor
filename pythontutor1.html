@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Python 101</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body class="antialiased">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-white/80 backdrop-blur-lg border-r border-gray-200/50 p-6 sticky top-0 h-screen overflow-y-auto hidden md:block">
+            <h1 class="text-2xl font-bold text-indigo-900 mb-8">Interactive Python 101</h1>
+            <nav id="sidebar-nav" class="space-y-2">
+                <!-- Nav links will be injected here by JS -->
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 md:p-8 lg:p-12 overflow-y-auto">
+            <div class="max-w-7xl mx-auto">
+                <header class="mb-12">
+                      <h2 class="text-4xl font-bold text-gray-800">Python Lessons Dashboard</h2>
+                      <p class="text-lg text-gray-600 mt-2">Explore Python's core concepts. Click on a category in the sidebar or scroll to a section, then select a card to view the lesson.</p>
+                </header>
+                <div id="content-container">
+                    <!-- Lesson sections and cards will be injected here by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="lesson-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50 opacity-0" onclick="closeModal()">
+        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col transform scale-95" onclick="event.stopPropagation()">
+            <header class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button onclick="closeModal()" class="text-3xl text-gray-500 hover:text-gray-800">&times;</button>
+            </header>
+            <div id="modal-scroll-container" class="p-6 overflow-y-auto">
+                <div id="modal-body" class="prose max-w-none">
+                    <!-- Modal content injected by JS -->
+                </div>
+                <!-- Gemini Features Section -->
+                <div id="gemini-section" class="mt-8 border-t-2 border-indigo-100 pt-6">
+                    <h4 class="font-semibold text-lg mb-4 text-gray-700 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        AI Learning Assistant
+                    </h4>
+                    <div id="gemini-controls" class="flex flex-wrap gap-4">
+                        <!-- Gemini buttons will be injected here -->
+                    </div>
+                    <div id="gemini-response" class="mt-4 p-4 bg-indigo-50/70 rounded-lg border border-indigo-200/80 min-h-[80px] hidden">
+                        <!-- Gemini response and loader will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to your external JavaScript file, placed at the end of the body -->
+    <script src="script.js"></script>
+
+</body>
+</html>
